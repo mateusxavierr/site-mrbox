@@ -30,6 +30,9 @@ jobs:
         env:
           # Projeto em https://<user>.github.io/<nome-do-repo>/
           BASE_PATH: /${{ github.event.repository.name }}
+      # Sem isso, o GitHub Pages (Jekyll) ignora `_next/` e o site perde CSS/JS.
+      - name: Disable Jekyll
+        run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
