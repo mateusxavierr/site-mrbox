@@ -40,7 +40,8 @@ function IconClock(props: SVGProps<SVGSVGElement>) {
 }
 
 export default function ContatoPage() {
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`;
+  const mapsUrlMatriz = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.locations[0].mapsQuery)}`;
+  const mapsUrlFilial = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.locations[1].mapsQuery)}`;
   return (
     <div className="pb-16 sm:pb-24">
       <section className="section-surface border-b-4 px-4 py-12 sm:px-6 sm:py-16">
@@ -49,17 +50,25 @@ export default function ContatoPage() {
             <p className="text-sm font-bold uppercase tracking-wider text-brand-muted">Fale conosco</p>
             <h1 className="mt-2 text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">Contato</h1>
             <p className="mt-3 max-w-xl text-base font-medium leading-relaxed text-slate-800">
-              Unidade em <strong>{site.addressFull}</strong>. Use os canais abaixo — o WhatsApp costuma ser o
-              retorno mais rápido.
+              Unidades em <strong>Boa Viagem</strong> e <strong>Imbiribeira</strong>. Use os canais abaixo — o WhatsApp
+              costuma ser o retorno mais rápido.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={mapsUrl}
+                href={mapsUrlMatriz}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex justify-center rounded-xl border-2 border-black bg-brand px-5 py-2.5 text-sm font-black text-black shadow-bolt-md hover:bg-brand-hover hover:shadow-bolt-press"
               >
-                Como chegar no Google Maps
+                Como chegar (Matriz)
+              </a>
+              <a
+                href={mapsUrlFilial}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex justify-center rounded-xl border-2 border-black bg-brand px-5 py-2.5 text-sm font-black text-black shadow-bolt-md hover:bg-brand-hover hover:shadow-bolt-press"
+              >
+                Como chegar (Filial)
               </a>
               <a
                 href={whatsappHref("Olá! Vim pela página de contato do site da Mr. Boxes e quero falar com a equipe.")}
@@ -82,6 +91,47 @@ export default function ContatoPage() {
               priority
             />
           </div>
+        </div>
+      </section>
+
+      <section className="section-surface border-b-4 px-4 py-12 sm:px-6 sm:py-14">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-center text-2xl font-black text-black sm:text-3xl">Endereços</h2>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-sm font-semibold text-black/80 sm:text-base">
+            Matriz e filial com o mesmo horário de funcionamento.
+          </p>
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+            <li className="bolt-card p-6">
+              <p className="text-xs font-black uppercase tracking-wide text-black/60">Endereço Matriz</p>
+              <p className="mt-2 text-base font-black text-black">{site.locations[0].address}</p>
+              <p className="mt-3 text-sm font-semibold text-black/70">Horário de funcionamento</p>
+              <p className="mt-1 text-sm font-medium text-black/75">{site.locations[0].hours}</p>
+              <a
+                href={mapsUrlMatriz}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex w-full justify-center rounded-xl border-2 border-black bg-black px-5 py-3 text-sm font-black text-white shadow-bolt-accent-sm hover:bg-black/90 sm:w-auto"
+              >
+                Ver no Google Maps
+              </a>
+            </li>
+            <li className="bolt-card p-6">
+              <p className="text-xs font-black uppercase tracking-wide text-black/60">Endereço Filial</p>
+              <p className="mt-2 text-base font-black text-black">
+                {site.locations[1].address} · CEP: {"cep" in site.locations[1] ? site.locations[1].cep : ""}
+              </p>
+              <p className="mt-3 text-sm font-semibold text-black/70">Horário de funcionamento</p>
+              <p className="mt-1 text-sm font-medium text-black/75">{site.locations[1].hours}</p>
+              <a
+                href={mapsUrlFilial}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex w-full justify-center rounded-xl border-2 border-black bg-black px-5 py-3 text-sm font-black text-white shadow-bolt-accent-sm hover:bg-black/90 sm:w-auto"
+              >
+                Ver no Google Maps
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 

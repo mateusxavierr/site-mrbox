@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BoxTypesPicker } from "@/components/box-types-picker";
+import { BudgetForm } from "@/components/budget-form";
 import { FacilityOffersSection } from "@/components/facility-offers";
 import { FaqAccordion, type FaqItem } from "@/components/faq-accordion";
 import { IconWhatsApp } from "@/components/icon-whatsapp";
@@ -257,6 +258,22 @@ export function HomeSections() {
           <div className="mt-8">
             <FaqAccordion items={faqItems} />
           </div>
+        </div>
+      </section>
+
+      {/* Orçamento */}
+      <section id="orcamento" className="section-surface border-t-2 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl font-black uppercase tracking-tight text-black sm:text-3xl">
+              SOLICITE UM ORÇAMENTO
+            </h2>
+            <p className="mt-3 text-sm font-semibold leading-relaxed text-black/75 sm:text-base">
+              Envie sua dúvida e retornaremos o mais breve possível.
+            </p>
+          </div>
+
+          <BudgetForm />
         </div>
       </section>
 
