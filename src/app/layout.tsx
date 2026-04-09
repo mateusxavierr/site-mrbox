@@ -5,7 +5,11 @@ import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { publicAssetPath } from "@/lib/base-path";
 import { site } from "@/lib/site";
+
+/** Aumente quando trocar logo/favicon — força o navegador a baixar de novo (cache do favicon é agressivo). */
+const FAVICON_VER = "4";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -21,6 +25,19 @@ export const metadata: Metadata = {
   description:
     "Boxes de 1 a 20 m³ em Recife: compare tamanhos com fotos, entenda o que cabe em cada um e fale com a equipe no WhatsApp.",
   metadataBase: new URL("https://www.mrboxes.com.br"),
+  icons: {
+    // PNG primeiro: a aba do navegador usa o ícone (o .ico sozinho costuma ser ignorado ou cacheado).
+    icon: [
+      { url: `${publicAssetPath("/icon.png")}?v=${FAVICON_VER}`, type: "image/png", sizes: "any" },
+      {
+        url: `${publicAssetPath("/favicon.ico")}?v=${FAVICON_VER}`,
+        sizes: "48x48",
+        type: "image/x-icon",
+      },
+    ],
+    apple: `${publicAssetPath("/icon.png")}?v=${FAVICON_VER}`,
+    shortcut: `${publicAssetPath("/icon.png")}?v=${FAVICON_VER}`,
+  },
 };
 
 export default function RootLayout({
