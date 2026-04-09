@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BoxTypesPicker } from "@/components/box-types-picker";
 import { BudgetForm } from "@/components/budget-form";
+import { IconBoxesSizes, IconClipboardQuote } from "@/components/cta-icons";
 import { FacilityOffersSection } from "@/components/facility-offers";
 import { FaqAccordion, type FaqItem } from "@/components/faq-accordion";
 import { IconWhatsApp } from "@/components/icon-whatsapp";
@@ -110,22 +111,32 @@ export function HomeSections() {
               Boxes de <strong className="text-black">1 a 20 m³</strong> para ganhar espaço com tranquilidade. Compare
               tamanhos abaixo — fotos, referências e exemplos na mesma tela.
             </p>
-            <div className="mt-8 flex flex-row gap-2 sm:gap-3">
+            <div className="mx-auto mt-8 flex w-full max-w-xl flex-col items-center gap-3">
               <a
                 href="#tipos-de-boxes"
-                className="bolt-cta min-w-0 flex-1 px-3 py-3 text-center text-[11px] font-black uppercase leading-tight tracking-wide sm:px-8 sm:py-4 sm:text-base sm:leading-none sm:tracking-wide"
+                className="bolt-cta w-full max-w-xl justify-center gap-2 px-3 py-3 text-[11px] font-black uppercase leading-tight tracking-wide sm:px-8 sm:py-4 sm:text-base sm:leading-none sm:tracking-wide"
               >
-                Ver tamanhos
+                <IconBoxesSizes className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" />
+                Ver tamanhos dos boxes
               </a>
-              <a
-                href={whatsappHref(`Olá! Acessei o site da ${site.name} e quero informações sobre self storage.`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-xl border-2 border-black bg-black px-3 py-3 text-[11px] font-bold text-white shadow-bolt-accent-sm transition hover:bg-black/90 hover:shadow-bolt-sm sm:gap-2 sm:px-6 sm:py-4 sm:text-sm"
-              >
-                <IconWhatsApp className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" />
-                Falar no WhatsApp
-              </a>
+              <div className="grid w-full max-w-xl grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
+                <a
+                  href="#orcamento"
+                  className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl border-2 border-black bg-black px-3 py-3 text-center text-[11px] font-bold leading-snug text-white shadow-bolt-accent-sm transition hover:bg-black/90 hover:shadow-bolt-sm sm:min-h-[56px] sm:py-4 sm:text-sm"
+                >
+                  <IconClipboardQuote className="h-4 w-4 shrink-0 text-white sm:h-5 sm:w-5" />
+                  Solicitar orçamento
+                </a>
+                <a
+                  href={whatsappHref(`Olá! Acessei o site da ${site.name} e quero informações sobre self storage.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl border-2 border-black bg-black px-3 py-3 text-center text-[11px] font-bold text-white shadow-bolt-accent-sm transition hover:bg-black/90 hover:shadow-bolt-sm sm:min-h-[56px] sm:py-4 sm:text-sm"
+                >
+                  <IconWhatsApp className="h-4 w-4 shrink-0 text-white sm:h-5 sm:w-5" />
+                  Falar no WhatsApp
+                </a>
+              </div>
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-black">
               <li className="flex items-center gap-2">
@@ -284,21 +295,29 @@ export function HomeSections() {
           <p className="mx-auto mt-3 max-w-2xl text-sm font-semibold text-white/85 sm:text-base">
             Escolheu o tamanho? Fale no WhatsApp: a equipe confirma disponibilidade e próximos passos.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mx-auto mt-8 grid w-full max-w-5xl grid-cols-3 gap-2 sm:gap-3">
             <a
               href="#tipos-de-boxes"
-              className="inline-flex w-full items-center justify-center rounded-xl border-2 border-black bg-brand px-8 py-4 text-sm font-black uppercase tracking-wide text-black shadow-bolt-light transition hover:bg-brand-hover hover:shadow-bolt-press sm:w-auto"
+              className="inline-flex min-h-[52px] w-full min-w-0 items-center justify-center gap-1 rounded-xl border-2 border-black bg-brand px-2 py-3 text-center text-[10px] font-black uppercase leading-tight tracking-wide text-black shadow-bolt-light transition hover:bg-brand-hover hover:shadow-bolt-press sm:min-h-[56px] sm:gap-2 sm:px-5 sm:py-4 sm:text-xs md:text-sm"
             >
-              Comparar tamanhos
+              <IconBoxesSizes className="h-4 w-4 shrink-0 text-black sm:h-5 sm:w-5" />
+              <span className="md:whitespace-nowrap">Comparar tamanhos</span>
+            </a>
+            <a
+              href="#orcamento"
+              className="inline-flex min-h-[52px] w-full min-w-0 items-center justify-center gap-1 rounded-xl border-2 border-white bg-white px-2 py-3 text-center text-[10px] font-black leading-tight text-black hover:bg-brand sm:min-h-[56px] sm:gap-2 sm:px-5 sm:py-4 sm:text-xs md:text-sm"
+            >
+              <IconClipboardQuote className="h-4 w-4 shrink-0 text-black sm:h-5 sm:w-5" />
+              <span className="leading-tight md:whitespace-nowrap">Solicitar orçamento</span>
             </a>
             <a
               href={whatsappHref("Olá! Quero reservar ou tirar dúvidas sobre um box. Vim pelo site da Mr. Boxes.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 text-sm font-black text-black hover:bg-brand sm:w-auto"
+              className="inline-flex min-h-[52px] w-full min-w-0 items-center justify-center gap-1 rounded-xl border-2 border-white bg-white px-2 py-3 text-center text-[10px] font-black leading-tight text-black hover:bg-brand sm:min-h-[56px] sm:gap-2 sm:px-5 sm:py-4 sm:text-xs md:text-sm"
             >
-              <IconWhatsApp className="h-5 w-5 shrink-0" />
-              Falar no WhatsApp
+              <IconWhatsApp className="h-4 w-4 shrink-0 text-black sm:h-5 sm:w-5" />
+              <span className="leading-tight md:whitespace-nowrap">Falar no WhatsApp</span>
             </a>
           </div>
         </div>

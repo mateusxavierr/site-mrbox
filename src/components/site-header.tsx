@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IconClipboardQuote } from "@/components/cta-icons";
 import { HeaderNavDesktop, HeaderNavMobile } from "@/components/header-nav";
 import { IconWhatsApp } from "@/components/icon-whatsapp";
 import { brandMedia } from "@/lib/media";
@@ -20,14 +21,21 @@ export function SiteHeader() {
           />
         </Link>
         <HeaderNavDesktop />
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
+          <Link
+            href="/#orcamento"
+            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-black bg-black px-3 py-2 text-xs font-bold text-white shadow-bolt-accent-sm transition hover:bg-black/90 sm:gap-2 sm:px-4 sm:text-sm"
+          >
+            <IconClipboardQuote className="h-4 w-4 shrink-0 text-white sm:h-5 sm:w-5" />
+            Orçamento
+          </Link>
           <a
             href={whatsappHref("Olá! Acessei o site da Mr. Boxes e quero falar sobre self storage.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-black bg-black px-4 py-2 text-sm font-bold text-white shadow-bolt-accent-sm transition hover:bg-black/90"
+            className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-black bg-black px-3 py-2 text-xs font-bold text-white shadow-bolt-accent-sm transition hover:bg-black/90 sm:gap-2 sm:px-4 sm:text-sm"
           >
-            <IconWhatsApp className="h-5 w-5 shrink-0" />
+            <IconWhatsApp className="h-4 w-4 shrink-0 text-white sm:h-5 sm:w-5" />
             WhatsApp
           </a>
         </div>
